@@ -7,9 +7,9 @@ import day07.Day07
 
 fun main() {
     println("""
-                      _   __           __   __  __  __  
- /\  _|   _ _ |_   _ (_  /   _  _| _    _) /  \  _)  _) 
-/--\(_|\/(-| )|_  (_)|   \__(_)(_|(-   /__ \__/ /__ /__ 
+                          _   __           __   __  __  __  
+     /\  _|   _ _ |_   _ (_  /   _  _| _    _) /  \  _)  _) 
+    /--\(_|\/(-| )|_  (_)|   \__(_)(_|(-   /__ \__/ /__ /__ 
     """.trimIndent())
     println("To run Advent of Code solutions choose a day (1-25) or q to quit")
     while (true) {

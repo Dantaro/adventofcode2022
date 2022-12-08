@@ -14,4 +14,5 @@ This is my repo for progressing through [Advent of Code 2022](https://adventofco
 | 6   | x      | x      |
 | 7   | x      | x      |
 
-
+### Running the code
+The Main class contains a simple CLI to run the problems.
