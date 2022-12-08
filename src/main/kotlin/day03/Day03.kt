@@ -12,7 +12,7 @@ fun main() {
 object Day03 : AdventOfCode {
 
     override fun part1(): Int {
-        File(this::class.java.classLoader.getResource("day03/data.txt")!!.toURI().path)
+        FileUtil.getFile("day03")
             .useLines { lines ->
                 return lines.map { line ->
                     val half = line.length / 2

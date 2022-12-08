@@ -1,16 +1,17 @@
 package day01
 
 import AdventOfCode
+import FileUtil
 import java.io.File
 
 fun main() {
-    println(DayOne.part1())
-    println(DayOne.part2())
+    println(Day01.part1())
+    println(Day01.part2())
 }
 
-object DayOne : AdventOfCode {
+object Day01 : AdventOfCode {
     override fun part1(): Int {
-        File(this::class.java.classLoader.getResource("day01/data.txt")!!.toURI().path)
+        FileUtil.getFile("day01")
             .useLines { lines ->
                 var mostCalories = 0
                 val currentBackpack = mutableListOf<Int>()

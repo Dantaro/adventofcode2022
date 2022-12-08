@@ -1,14 +1,15 @@
 package day02
 
 import AdventOfCode
+import FileUtil
 import java.io.File
 
 fun main() {
-    println(Day2.part1())
-    println(Day2.part2())
+    println(Day02.part1())
+    println(Day02.part2())
 }
 
-object Day2 : AdventOfCode {
+object Day02 : AdventOfCode {
     override fun part1(): Int {
         // A X Rock
         // B Y Paper
@@ -29,7 +30,7 @@ object Day2 : AdventOfCode {
         // X Lose
         // Y Win
         // Z Tie
-        File(this::class.java.classLoader.getResource("day02/data.txt")!!.toURI().path)
+        FileUtil.getFile("day02")
             .useLines { lines ->
                 return lines.map {line ->
                     val splits = line.split(" ")
