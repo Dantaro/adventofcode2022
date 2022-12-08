@@ -9,6 +9,8 @@ fun main() {
 }
 
 object Day05 : AdventOfCode {
+
+    override fun url(): String = "https://adventofcode.com/2022/day/5"
     override fun part1(): Int {
         val data = FileUtil.getFile("day05").readLines()
 

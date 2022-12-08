@@ -23,6 +23,8 @@ object Day07 : AdventOfCode {
         return calculatedNodes.values.filter { it >= neededSpace }.minOf { it }
     }
 
+    override fun url(): String = "https://adventofcode.com/2022/day/7"
+
     /**
      * This function calculates the size of all directories, it does so using a non-recursive DFS
      *

@@ -16,6 +16,8 @@ object Day06 : AdventOfCode {
         return processData(14)
     }
 
+    override fun url(): String = "https://adventofcode.com/2022/day/6"
+
     private fun processData(size: Int): Int {
         FileUtil
             .getFile("day06")

@@ -10,6 +10,8 @@ fun main() {
 }
 
 object Day02 : AdventOfCode {
+    override fun url(): String = "https://adventofcode.com/2022/day/2"
+
     override fun part1(): Int {
         // A X Rock
         // B Y Paper

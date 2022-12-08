@@ -29,6 +29,7 @@ fun main() {
                 if (adventProblem == null) {
                     println("No problem for that value (yet!)")
                 } else {
+                    println("URL: ${adventProblem.url()}")
                     println("Part 1: ${adventProblem.part1()}")
                     println("Part 2: ${adventProblem.part2()}")
                 }

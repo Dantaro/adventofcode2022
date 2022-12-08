@@ -10,6 +10,7 @@ fun main() {
 }
 
 object Day03 : AdventOfCode {
+    override fun url(): String = "https://adventofcode.com/2022/day/3"
 
     override fun part1(): Int {
         FileUtil.getFile("day03")
