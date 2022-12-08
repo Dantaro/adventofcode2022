@@ -1,7 +1,7 @@
 package day07
 
 import AdventOfCode
-import java.lang.RuntimeException
+import FileUtil
 
 fun main() {
     println(Day07.part1())
@@ -20,7 +20,7 @@ object Day07 : AdventOfCode {
         val calculatedNodes = calculateDirectorySizes(fileSystem)
         val usedSpace = 70_000_000 - calculatedNodes[fileSystem]!!
         val neededSpace = 30_000_000 - usedSpace
-        return calculatedNodes.values.filter { it >= neededSpace }.sorted().first().toInt()
+        return calculatedNodes.values.filter { it >= neededSpace }.minOf { it }.toInt()
     }
 
     private fun calculateDirectorySizes(fileSystem: DirectoryNode): MutableMap<DirectoryNode, Long> {
@@ -29,15 +29,13 @@ object Day07 : AdventOfCode {
         discovered.add(fileSystem)
         while (discovered.isNotEmpty()) {
             val currentNode = discovered.removeLast()
-
             if (calculatedNodes[currentNode] == null) {
                 val subdirs = currentNode
                     .contents
                     .values
                     .filterIsInstance<DirectoryNode>()
-
                 if ((subdirs intersect calculatedNodes.keys).size == subdirs.size) {
-                    // If we've calculated the size of all of the subdirectories for this directory
+                    // If we've calculated the size of all the subdirectories for this directory
                     // Mark is completed and add it to the map
                     calculatedNodes[currentNode] = subdirs
                         .mapNotNull { calculatedNodes[it] }
@@ -69,22 +67,17 @@ object Day07 : AdventOfCode {
                     val command = line.substring(2).split(" ")
                     when {
                         command[0] == "cd" -> {
-                            when {
+                            currentDirectory = when {
                                 command[1] == ".." -> {
-                                    currentDirectory = if (path.isEmpty()) {
-                                        rootDirectory
-                                    } else {
-                                        path.removeLast()
-                                    }
-
+                                    if (path.isEmpty()) { rootDirectory } else { path.removeLast() }
                                 }
                                 command[1] == "/" -> {
                                     path.clear()
-                                    currentDirectory = rootDirectory
+                                    rootDirectory
                                 }
                                 else -> {
                                     path.add(currentDirectory)
-                                    currentDirectory = (currentDirectory.contents[command[1]] as DirectoryNode)
+                                    (currentDirectory.contents[command[1]] as DirectoryNode)
                                 }
                             }
                         }
