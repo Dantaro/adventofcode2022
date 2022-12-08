@@ -12,7 +12,7 @@ object Day07 : AdventOfCode {
     override fun part1(): Int {
         val fileSystem = buildFilesystem()
         val calculatedNodes = calculateDirectorySizes(fileSystem)
-        return calculatedNodes.values.filter { it < 100000 }.sum().toInt()
+        return calculatedNodes.values.filter { it < 100000 }.sum()
     }
 
     override fun part2(): Int {
@@ -20,11 +20,11 @@ object Day07 : AdventOfCode {
         val calculatedNodes = calculateDirectorySizes(fileSystem)
         val usedSpace = 70_000_000 - calculatedNodes[fileSystem]!!
         val neededSpace = 30_000_000 - usedSpace
-        return calculatedNodes.values.filter { it >= neededSpace }.minOf { it }.toInt()
+        return calculatedNodes.values.filter { it >= neededSpace }.minOf { it }
     }
 
-    private fun calculateDirectorySizes(fileSystem: DirectoryNode): MutableMap<DirectoryNode, Long> {
-        val calculatedNodes = mutableMapOf<DirectoryNode, Long>()
+    private fun calculateDirectorySizes(fileSystem: DirectoryNode): MutableMap<DirectoryNode, Int> {
+        val calculatedNodes = mutableMapOf<DirectoryNode, Int>()
         val discovered = mutableListOf<DirectoryNode>()
         discovered.add(fileSystem)
         while (discovered.isNotEmpty()) {
@@ -88,7 +88,7 @@ object Day07 : AdventOfCode {
                                     val values = it.split(" ")
                                     when {
                                         values[0] == "dir" -> values[1] to DirectoryNode()
-                                        else -> values[1] to FileNode(values[0].toLong())
+                                        else -> values[1] to FileNode(values[0].toInt())
                                     }
                                 }
                                 .forEach {

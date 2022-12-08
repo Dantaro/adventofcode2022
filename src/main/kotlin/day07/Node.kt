@@ -4,4 +4,4 @@ sealed class Node
 
 class DirectoryNode(val contents: MutableMap<String, Node> = mutableMapOf()): Node()
 
-class FileNode(val size: Long): Node()
+class FileNode(val size: Int): Node()
